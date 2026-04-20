@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "onixvisuals",
+  "version": "${version}",
+
+  "name": "OnixVisuals",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "GPL-3.0",
+  "icon": "assets/onixvisuals/icon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "main": ["onix.dev.Onixvisual"]
+  },
+
+  "mixins": [
+    "onixvisuals.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

@@ -1,0 +1,10 @@
+accessWidener v1  named
+accessible field net/minecraft/client/player/LocalPlayer xRotLast F
+accessible field net/minecraft/client/player/LocalPlayer yRotLast F
+accessible class net/minecraft/world/item/ItemCooldowns$CooldownInstance
+accessible field net/minecraft/world/item/ItemCooldowns tickCount I
+accessible method net/minecraft/client/multiplayer/MultiPlayerGameMode startPrediction (Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/multiplayer/prediction/PredictiveAction;)V
+accessible field net/minecraft/world/item/ItemCooldowns cooldowns Ljava/util/Map;
+accessible field net/minecraft/client/multiplayer/MultiPlayerGameMode destroyDelay I
+accessible field net/minecraft/client/Minecraft rightClickDelay I
+accessible field net/minecraft/world/entity/LivingEntity noJumpDelay I

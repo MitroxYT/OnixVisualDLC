@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "accessWidener": "onixvisuals.accesswidener",
+  "package": "onix.dev.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "game.RwMixin",
+    "player.LivingEntityMixin",
+    "player.MixinClientConnection",
+    "player.PlayerEntityMixin"
+  ],
+  "client": [
+    "game.ClientPlayNetworkHandlerMixin",
+    "game.KeyboardMixin",
+    "game.MinecraftClientMixin",
+    "game.MouseScrollMixin",
+    "player.ClientPlayerInteractionManagerMixin",
+    "player.MixinClientPlayerEntity",
+    "render.MixinWorldRenderer",
+    "render.RenderSystemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
