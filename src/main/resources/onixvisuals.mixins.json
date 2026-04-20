@@ -17,6 +17,7 @@
     "game.MouseScrollMixin",
     "player.ClientPlayerInteractionManagerMixin",
     "player.MixinClientPlayerEntity",
+    "render.ItemEntityRendererMixin",
     "render.ItemInHandRendererMixin",
     "render.MixinWorldRenderer",
     "render.RenderSystemMixin"
