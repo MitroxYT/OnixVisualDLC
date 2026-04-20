@@ -50,9 +50,12 @@ public class ModeSetting extends Setting<String> {
         setValue(modes.get(index));
     }
 
+    public String getSelected() {
+        return getValue();
+    }
+
     @Override
     public void setValue(String value) {
-        // Проверяем, есть ли такой режим в списке
         if (modes.contains(value)) {
             this.index = modes.indexOf(value);
             super.setValue(value);

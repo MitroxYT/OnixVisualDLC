@@ -8,6 +8,7 @@ import onix.dev.module.impl.movement.AutoSprint;
 import onix.dev.module.impl.movement.NoDelay;
 import onix.dev.module.impl.render.NotificationModule;
 import onix.dev.module.impl.render.RenderTest;
+import onix.dev.module.impl.render.SwingAnimation;
 import onix.dev.module.impl.render.TestModule;
 import onix.dev.ui.clickgui.ClickGuiScreen;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class FunctionManager {
                 new NotificationModule(),
 
                 new NameProtect(),
+                new SwingAnimation(),
                 new ClickGuiScreen()
         ));
     }
