@@ -6,11 +6,11 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
-public record OnixVisualPayload(String brand) implements CustomPacketPayload {
+public record OnixVisualPayload(String data) implements CustomPacketPayload {
     public static final Type<OnixVisualPayload> ID =
-            new CustomPacketPayload.Type<>(Identifier.fromNamespaceAndPath("onixvisuals", "load"));
+            new CustomPacketPayload.Type<>(Identifier.fromNamespaceAndPath("onixvisuals", "main"));
     public static final StreamCodec<FriendlyByteBuf, OnixVisualPayload> CODEC = StreamCodec.composite(
-            ByteBufCodecs.STRING_UTF8,       OnixVisualPayload::brand,
+            ByteBufCodecs.STRING_UTF8,       OnixVisualPayload::data,
             OnixVisualPayload::new
     );
 

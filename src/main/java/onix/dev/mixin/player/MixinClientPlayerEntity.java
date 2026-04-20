@@ -33,13 +33,6 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayer {
     }
 
 
-//    @ModifyExpressionValue(
-//            method = {
-//                    "isBlockedFromSprinting",
-//                    "applyMovementSpeedFactors"
-//            },
-//            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z")
-//    )
     @ModifyExpressionValue(method = {"isSlowDueToUsingItem","modifyInput"},at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isUsingItem()Z"))
     private boolean usingItemHook(boolean original) {
 

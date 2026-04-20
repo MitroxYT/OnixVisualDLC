@@ -14,6 +14,7 @@
     "game.ClientPlayNetworkHandlerMixin",
     "game.KeyboardMixin",
     "game.MinecraftClientMixin",
+    "game.MixinClientCustomPayLoadHandler",
     "game.MouseScrollMixin",
     "player.ClientPlayerInteractionManagerMixin",
     "player.MixinClientPlayerEntity",

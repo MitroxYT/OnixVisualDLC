@@ -31,9 +31,9 @@ public class ItemEntityRendererMixin {
     private void captureGroundState(ItemEntity entity, ItemEntityRenderState state, float tickDelta, CallbackInfo ci) {
         groundStateMap.put(state, entity.onGround());
     }
-    @Redirect(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;translate(FFF)V", ordinal = 0))
 
-    private void redirectTranslate(PoseStack instance, float x, float y, float z,ItemEntityRenderState state) {
+    @Redirect(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;translate(FFF)V", ordinal = 0))
+    private void redirectTranslate(PoseStack instance, float x, float y, float z, ItemEntityRenderState state) {
         currentState = state;
 
         ItemPhysic itemPhysic = ItemPhysic.getInstance();
@@ -46,6 +46,7 @@ public class ItemEntityRendererMixin {
             instance.translate(x, y, z);
         }
     }
+
     @Redirect(method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/ItemEntityRenderer;submitMultipleFromCount(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;ILnet/minecraft/client/renderer/entity/state/ItemClusterRenderState;Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/phys/AABB;)V"))
     private void redirectRender(PoseStack matrices, SubmitNodeCollector queue, int light, ItemClusterRenderState stackState, RandomSource random, AABB box) {
         ItemPhysic itemPhysic = ItemPhysic.getInstance();

@@ -29,7 +29,5 @@ public class AutoSprint extends Function {
     public void onUpdate(EventUpdate event) {
         if (fullNullCheck()) return;
         mc.options.keySprint.setDown(true);
-        mc.getConnection().send(
-       new ServerboundCustomPayloadPacket(new OnixVisualPayload("dakla".toLowerCase(Locale.ROOT))));
     }
 }
