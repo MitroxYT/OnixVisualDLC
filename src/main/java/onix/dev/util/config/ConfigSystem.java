@@ -65,31 +65,40 @@ public class ConfigSystem {
     }
     public static String getJsonConfig() {
         JsonObject root = new JsonObject();
-
+        JsonObject data = new JsonObject();
+        root.addProperty("version",1.0);
         for (Function module : Onixvisual.getInstance().getFunctionManager().getModules()) {
             JsonObject moduleData = new JsonObject();
+            moduleData.addProperty("name",module.getName());
             moduleData.addProperty("enabled", module.isState());
-            moduleData.addProperty("key", module.getKey());
-
-            JsonObject settingsObj = new JsonObject();
-            for (Setting setting : module.getSettings()) {
-                if (setting instanceof BooleanSetting s) {
-                    settingsObj.addProperty(s.getName(), s.isVisible());
-                }else if (setting instanceof ColorSetting) {
-                    //ColorSetting s = (ColorSetting) setting;
-                    //  settingsObj.addProperty(s.getName(), s.getColor());
-                } else if (setting instanceof ModeSetting s) {
-                    settingsObj.addProperty(s.getName(), s.getSelected());
-                } else if (setting instanceof NumberSetting s) {
-                    settingsObj.addProperty(s.getName(), s.getValue());
-                } else if (setting instanceof StringSetting s) {
-                    settingsObj.addProperty(s.getName(),s.getValue());
-                }
-            }
-
-            moduleData.add("settings", settingsObj);
-            root.add(module.getName(), moduleData);
+            data.add(module.getName(),moduleData);
         }
+        root.add("modules",data);
+//
+//        for (Function module : Onixvisual.getInstance().getFunctionManager().getModules()) {
+//            JsonObject moduleData = new JsonObject();
+//            moduleData.addProperty("enabled", module.isState());
+//            moduleData.addProperty("key", module.getKey());
+//
+//            JsonObject settingsObj = new JsonObject();
+//            for (Setting setting : module.getSettings()) {
+//                if (setting instanceof BooleanSetting s) {
+//                    settingsObj.addProperty(s.getName(), s.isVisible());
+//                }else if (setting instanceof ColorSetting) {
+//                    //ColorSetting s = (ColorSetting) setting;
+//                    //  settingsObj.addProperty(s.getName(), s.getColor());
+//                } else if (setting instanceof ModeSetting s) {
+//                    settingsObj.addProperty(s.getName(), s.getSelected());
+//                } else if (setting instanceof NumberSetting s) {
+//                    settingsObj.addProperty(s.getName(), s.getValue());
+//                } else if (setting instanceof StringSetting s) {
+//                    settingsObj.addProperty(s.getName(),s.getValue());
+//                }
+//            }
+//
+//            moduleData.add("settings", settingsObj);
+//            root.add(module.getName(), moduleData);
+//        }
 
         return gson.toJson(root);
     }
