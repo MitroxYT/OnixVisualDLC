@@ -19,6 +19,7 @@ public class NoDelay extends Function {
     }
     @Subscribe
     public void onUpdate(EventUpdate event) {
+        if (fullNullCheck()) return;
         if (BreakCoolDown.getValue()) {
             assert mc.gameMode != null;
             mc.gameMode.destroyDelay = 0;

@@ -47,4 +47,12 @@ public class FunctionManager {
                 .findFirst()
                 .orElse(null);
     }
+
+    public <T extends Function> T get(String name) {
+        return modules.stream()
+                .filter(module -> module.getName().equalsIgnoreCase(name))
+                .map(module -> (T) module)
+                .findAny()
+                .orElse(null);
+    }
 }

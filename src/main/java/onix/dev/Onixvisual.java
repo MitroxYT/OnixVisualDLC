@@ -14,6 +14,7 @@ import onix.dev.module.api.Function;
 import onix.dev.module.setting.api.SettingManager;
 import onix.dev.module.setting.impl.BooleanSetting;
 import onix.dev.util.Player.PlayerServis;
+import onix.dev.util.config.ConfigSystem;
 import onix.dev.util.math.MathUtil;
 import onix.dev.util.others.ItemUtil;
 import onix.dev.util.others.Lisener.ListenerRepository;
@@ -66,6 +67,9 @@ public class Onixvisual implements ModInitializer {
 //    }
     @Override
     public void onInitialize() {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            ConfigSystem.saveConfig("autoConfig");
+        }));
         eventBus = new EventBus();
         PayloadTypeRegistry.playC2S().register(OnixVisualPayload.ID,OnixVisualPayload.CODEC);
         settingManager = new SettingManager();
@@ -73,6 +77,7 @@ public class Onixvisual implements ModInitializer {
         playerServis = new PlayerServis();
         initListeners();
         eventBus.register(this);
+        ConfigSystem.loadConfig("autoConfig");
     }
 
     @Subscribe
