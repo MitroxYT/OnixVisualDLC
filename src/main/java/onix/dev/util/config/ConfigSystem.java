@@ -27,7 +27,7 @@ public class ConfigSystem {
             JsonObject settingsObj = new JsonObject();
             for (Setting setting : module.getSettings()) {
                 if (setting instanceof BooleanSetting s) {
-                    settingsObj.addProperty(s.getName(), s.isVisible());
+                    settingsObj.addProperty(s.getName(), s.getValue());
                 }else if (setting instanceof ColorSetting) {
                     //ColorSetting s = (ColorSetting) setting;
                   //  settingsObj.addProperty(s.getName(), s.getColor());

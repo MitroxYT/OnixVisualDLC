@@ -6,6 +6,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "game.RwMixin",
+    "game.StringDecomposerMixin",
     "player.LivingEntityMixin",
     "player.MixinClientConnection",
     "player.PlayerEntityMixin"
