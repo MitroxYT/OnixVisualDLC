@@ -6,10 +6,7 @@ import onix.dev.module.impl.misc.DebugPanelModule;
 import onix.dev.module.impl.misc.NameProtect;
 import onix.dev.module.impl.movement.AutoSprint;
 import onix.dev.module.impl.movement.NoDelay;
-import onix.dev.module.impl.render.NotificationModule;
-import onix.dev.module.impl.render.RenderTest;
-import onix.dev.module.impl.render.SwingAnimation;
-import onix.dev.module.impl.render.TestModule;
+import onix.dev.module.impl.render.*;
 import onix.dev.ui.clickgui.ClickGuiScreen;
 import lombok.Getter;
 
@@ -32,6 +29,7 @@ public class FunctionManager {
 
                 new NameProtect(),
                 new SwingAnimation(),
+                new ItemPhysic(),
                 new ClickGuiScreen()
         ));
     }
